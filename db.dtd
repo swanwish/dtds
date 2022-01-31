@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT db (table|view|abstracttable|include|customsql)*>
+<!ATTLIST db
+  description CDATA #IMPLIED
+  name CDATA #REQUIRED
+>
+<!ELEMENT table (column|includeabstract|index)*>
+<!ATTLIST table
+  description CDATA #IMPLIED
+  name CDATA #REQUIRED
+>
+<!ELEMENT column (#PCDATA)>
+<!ATTLIST column
+  autoincrement CDATA #IMPLIED
+  description CDATA #IMPLIED
+  json CDATA #IMPLIED
+  xml CDATA #IMPLIED
+  length CDATA #IMPLIED
+  name CDATA #REQUIRED
+  notnull CDATA #IMPLIED
+  pk CDATA #IMPLIED
+  skipupdate CDATA #IMPLIED
+  type (SMALLINT|INT|BIGINT|VARCHAR|TEXT|NUMERIC|LONGTEXT|DECIMAL|UUID|STRING|BOOL) #REQUIRED
+  unique CDATA #IMPLIED
+  default CDATA #IMPLIED
+  sequence CDATA #IMPLIED
+  entitydefault CDATA #IMPLIED
+>
+<!ELEMENT view (sql)*>
+<!ATTLIST view
+  name CDATA #REQUIRED
+  description CDATA #IMPLIED
+>
+<!ELEMENT sql (#PCDATA)>
+<!ELEMENT abstracttable (column)*>
+<!ATTLIST abstracttable
+  id CDATA #REQUIRED
+  description CDATA #IMPLIED
+>
+<!ELEMENT include EMPTY>
+<!ATTLIST include file CDATA #REQUIRED>
+<!ELEMENT includeabstract EMPTY>
+<!ATTLIST includeabstract id CDATA #REQUIRED>
+<!ELEMENT index (#PCDATA)>
+<!ATTLIST index
+  name CDATA #REQUIRED
+  columns CDATA #REQUIRED
+>
+<!ELEMENT customsql (sql)>
+<!ATTLIST customsql
+  name CDATA #REQUIRED
+  description CDATA #IMPLIED
+>
