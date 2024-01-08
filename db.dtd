@@ -47,6 +47,7 @@
 <!ELEMENT index (#PCDATA)>
 <!ATTLIST index
   name CDATA #REQUIRED
+  unique CDATA #IMPLIED
   columns CDATA #REQUIRED
 >
 <!ELEMENT customsql (sql)>
